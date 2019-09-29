@@ -1,11 +1,16 @@
 from scrapy import signals
+from scrapy.utils.conf import closest_scrapy_cfg
 from oauth2client.service_account import ServiceAccountCredentials
+
 
 class GoogleAuthDownloaderMiddleware(object):
 
     def __init__(self, settings):
         self.scopes = settings['GOOGLE_AUTH_SCOPES']
-        self.credentials = settings['GOOGLE_AUTH_CREDENTIAL_PATH']
+
+        root_path = '/'.join(closest_scrapy_cfg().split('/')[0:-1])
+        bot_path = root_path + '/' + settings['BOT_NAME'] + '/'
+        self.credentials = bot_path + settings['GOOGLE_AUTH_CREDENTIAL_PATH']
 
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
