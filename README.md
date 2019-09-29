@@ -17,7 +17,7 @@
         GOOGLE_AUTH_SCOPES = ['YOUR_GOOGLE_ANALYTICS_SCOPE']
         GOOGLE_AUTH_CREDENTIAL_PATH = 'YOUR_GOOGLE_CREDENTIAL_CONFIG.json'
 
-    **请注意 GOOGLE_AUTH_CREDENTIAL_PATH 是 Google 的服务账号秘钥，请根据 settings.py 所在的目录设置相对路径**
+    请注意 GOOGLE_AUTH_CREDENTIAL_PATH 是 Google 的服务账号秘钥，请根据 settings.py 所在的目录设置相对路径
 
 2. 在 Scrapy 中的 settings.py 配置中间件：
 
