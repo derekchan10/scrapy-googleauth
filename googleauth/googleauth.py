@@ -10,7 +10,7 @@ class GoogleAuthDownloaderMiddleware(object):
 
         root_path = '/'.join(closest_scrapy_cfg().split('/')[0:-1])
         bot_path = root_path + '/' + settings['BOT_NAME'] + '/'
-        self.credentials = bot_path + settings['GOOGLE_AUTH_CREDENTIAL_PATH']
+        self.credentials = settings['GOOGLE_AUTH_CREDENTIAL_PATH'] if settings['GOOGLE_AUTH_CREDENTIAL_PATH'][0:1] == '/' else bot_path + settings['GOOGLE_AUTH_CREDENTIAL_PATH']
 
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
